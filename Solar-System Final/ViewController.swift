@@ -65,6 +65,27 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         sceneView.autoenablesDefaultLighting = true
         addPlanetArroundSun()
+        
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(rec:)))
+        sceneView.addGestureRecognizer(tap)
+
+    }
+    
+    //Method called when tap
+    @objc func handleTap(rec: UITapGestureRecognizer){
+        if rec.state == .ended {
+            let location: CGPoint = rec.location(in: sceneView)
+            let hits = self.sceneView.hitTest(location, options: nil)
+            if !hits.isEmpty{
+                sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+                    if hits.first?.node.name == node.name && (node.name  != nil) {
+                        node.removeFromParentNode()
+                    }
+                }
+            }
+            
+        }
     }
     
     func addPlanetArroundSun(){
@@ -78,9 +99,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             sunNode.position = SCNVector3(0,0.5,0 )
 
             let childNode = addCenterNode(ofIndex: index)
-
             childNode.position = SCNVector3(0,0, -radiu )
-            
+            childNode.name = planetsName[index]
             //
             createTextNode(title: planetsName[index], size: 0.25, x: 0.9, y: 0.9, planetNode: childNode)
             
