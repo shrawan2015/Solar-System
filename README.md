@@ -22,3 +22,4 @@ Advance feature:- To be done
 ![myimage-alt-tag](https://github.com/shrawan2015/Solar-System/blob/master/Solar-System%20Final/Screenshot/soloar_system.PNG)
 
 
+In image I = Increase, D = Decreaes
