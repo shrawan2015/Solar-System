@@ -1,8 +1,6 @@
 # Solar-System
 
-
-Requirements
-
+Completed:-
 * Make solar system, which consists of Sun and planets.
 * Planets will revolve around the sun with some velocity.
 * Dynamically we can change the velocity of planets.
@@ -14,7 +12,13 @@ Requirements
 * Show detail of planet when tapping on it.
  
  
-Advance feature:-
+Advance feature:- To be done
 * Movement of planet system with eyebrow using ARKit 2.
 * Update colour of the solar system.
 * Moon and satellite revolving around the earth.
+
+![myimage-alt-tag](https://github.com/shrawan2015/Solar-System/blob/master/Solar-System%20Final/Screenshot/below_solar_system.PNG)
+
+![myimage-alt-tag](https://github.com/shrawan2015/Solar-System/blob/master/Solar-System%20Final/Screenshot/soloar_system.PNG)
+
+
