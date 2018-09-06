@@ -10,6 +10,11 @@
 		04888BCA2141249F009A0E0A /* PlanetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04888BC92141249E009A0E0A /* PlanetModel.swift */; };
 		04888BCC21413D91009A0E0A /* sun_texture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04888BCB21413D91009A0E0A /* sun_texture.jpg */; };
 		04888BCE21415153009A0E0A /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04888BCD21415152009A0E0A /* AudioPlayer.swift */; };
+		04888BD721415C2E009A0E0A /* soloar_system.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 04888BD221415C2E009A0E0A /* soloar_system.PNG */; };
+		04888BD821415C2E009A0E0A /* IMG_0295.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 04888BD321415C2E009A0E0A /* IMG_0295.PNG */; };
+		04888BD921415C2E009A0E0A /* IMG_0297.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 04888BD421415C2E009A0E0A /* IMG_0297.PNG */; };
+		04888BDA21415C2E009A0E0A /* below_solar_system.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 04888BD521415C2E009A0E0A /* below_solar_system.PNG */; };
+		04888BDB21415C2E009A0E0A /* IMG_0294.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 04888BD621415C2E009A0E0A /* IMG_0294.PNG */; };
 		04A24921213FCA8A00718C95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A24920213FCA8A00718C95 /* AppDelegate.swift */; };
 		04A24923213FCA8A00718C95 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A24922213FCA8A00718C95 /* art.scnassets */; };
 		04A24925213FCA8A00718C95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A24924213FCA8A00718C95 /* ViewController.swift */; };
@@ -36,6 +41,11 @@
 		04888BC92141249E009A0E0A /* PlanetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetModel.swift; sourceTree = "<group>"; };
 		04888BCB21413D91009A0E0A /* sun_texture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sun_texture.jpg; sourceTree = "<group>"; };
 		04888BCD21415152009A0E0A /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		04888BD221415C2E009A0E0A /* soloar_system.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soloar_system.PNG; sourceTree = "<group>"; };
+		04888BD321415C2E009A0E0A /* IMG_0295.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_0295.PNG; sourceTree = "<group>"; };
+		04888BD421415C2E009A0E0A /* IMG_0297.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_0297.PNG; sourceTree = "<group>"; };
+		04888BD521415C2E009A0E0A /* below_solar_system.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = below_solar_system.PNG; sourceTree = "<group>"; };
+		04888BD621415C2E009A0E0A /* IMG_0294.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_0294.PNG; sourceTree = "<group>"; };
 		04A2491D213FCA8A00718C95 /* Solar-System Final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Solar-System Final.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A24920213FCA8A00718C95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04A24922213FCA8A00718C95 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -71,6 +81,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04888BD121415BF7009A0E0A /* Screenshot */ = {
+			isa = PBXGroup;
+			children = (
+				04888BD621415C2E009A0E0A /* IMG_0294.PNG */,
+				04888BD321415C2E009A0E0A /* IMG_0295.PNG */,
+				04888BD221415C2E009A0E0A /* soloar_system.PNG */,
+				04888BD421415C2E009A0E0A /* IMG_0297.PNG */,
+				04888BD521415C2E009A0E0A /* below_solar_system.PNG */,
+			);
+			path = Screenshot;
+			sourceTree = "<group>";
+		};
 		04A24914213FCA8A00718C95 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +112,7 @@
 		04A2491F213FCA8A00718C95 /* Solar-System Final */ = {
 			isa = PBXGroup;
 			children = (
+				04888BD121415BF7009A0E0A /* Screenshot */,
 				04888BCD21415152009A0E0A /* AudioPlayer.swift */,
 				04A24920213FCA8A00718C95 /* AppDelegate.swift */,
 				04A24922213FCA8A00718C95 /* art.scnassets */,
@@ -178,13 +201,18 @@
 			files = (
 				04A2494D213FDD4C00718C95 /* moon.jpg in Resources */,
 				04A24942213FDD4C00718C95 /* saturn_loop.png in Resources */,
+				04888BDA21415C2E009A0E0A /* below_solar_system.PNG in Resources */,
 				04A2494B213FDD4C00718C95 /* venus.jpg in Resources */,
 				04A2494C213FDD4C00718C95 /* earth.jpg in Resources */,
 				04A24944213FDD4C00718C95 /* sun.jpg in Resources */,
+				04888BD921415C2E009A0E0A /* IMG_0297.PNG in Resources */,
 				04A2494E213FDD4C00718C95 /* uranus_loop.png in Resources */,
 				04A2494A213FDD4C00718C95 /* saturn_cloud.png in Resources */,
 				04A24945213FDD4C00718C95 /* mars.jpg in Resources */,
+				04888BDB21415C2E009A0E0A /* IMG_0294.PNG in Resources */,
+				04888BD721415C2E009A0E0A /* soloar_system.PNG in Resources */,
 				04A24946213FDD4C00718C95 /* mercury.jpg in Resources */,
+				04888BD821415C2E009A0E0A /* IMG_0295.PNG in Resources */,
 				04A2494F213FDD4C00718C95 /* jupiter.jpg in Resources */,
 				04A24947213FDD4C00718C95 /* saturn.jpg in Resources */,
 				04A24943213FDD4C00718C95 /* jupiter_loop.png in Resources */,
