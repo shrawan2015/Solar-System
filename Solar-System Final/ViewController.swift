@@ -11,8 +11,6 @@ import SceneKit
 import ARKit
 
 
-
-
 class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var customView: UIView!
     @IBOutlet var  sceneView: ARSCNView!
@@ -120,7 +118,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             childNode.name = planetsName[index]
 
             //Planet Name
-            createTextNode(title: planetsName[index], size: 0.25, x: 0.9, y: 0.9, planetNode: childNode)
+            createTextNode(title: planetsName[index], size: 0.5, planetNode: childNode)
             
             //Orbit of planet
             let path = pathDrawn(radius: radiu)
@@ -184,15 +182,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
 
 
-   
-    
-    func createTextNode(title: String, size: CGFloat, x: Float, y: Float , planetNode:SCNNode){
+    func createTextNode(title: String, size: CGFloat, planetNode:SCNNode){
         let text = SCNText(string: title, extrusionDepth: 0)
         text.firstMaterial?.diffuse.contents = UIColor.white
         text.font = UIFont(name: "Avenir Next", size: size)
         let textNode = SCNNode(geometry: text)
-        print("posoioon \(planetNode.position)")
-        textNode.position = SCNVector3(x:planetNode.position.x - 0.2 ,y: planetNode.position.y , z:planetNode.position.z)
+        textNode.scale = SCNVector3(0.3,0.3,0.3)
+        textNode.position = SCNVector3(x:-0.4  ,y: 0.2, z:0 )
         planetNode.addChildNode(textNode)
     }
     
