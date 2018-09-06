@@ -64,12 +64,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
     }
     
+    let planetRadius = [1 , 1.4 , 2 , 2.5 , 3 , 3.5 , 4 ,4.5 , 5]
+
     func addPlanetArroundSun(){
         //TODO: Update radius
-        let radius = [1 , 1.4 , 2 , 2.5 , 3 , 3.5 , 4 ,4.5 , 5]
         var speedDistribution = [1.6,0.9,1.2,0.8,1.3,0.2,0.4,0.8,0.2]
         
-        for (index,radiu) in radius.enumerated(){
+        for (index,radiu) in planetRadius.enumerated(){
            
             //Sun node
             let sunNode = addSunInCenter()
@@ -210,6 +211,28 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
     }
     
+    var orbitRadius = 0.01
+    func repositionPlanet(ifIncrease:Bool){
+        for (index,planet) in planetsName.enumerated(){
+            sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+                if planet == node.name && (node.name  != nil) {
+                    orbitRadius = ifIncrease ? (orbitRadius + 0.01) : (orbitRadius - 0.01)
+                    node.position =   SCNVector3(0,0, -planetRadius[index] - orbitRadius )
+                }
+            }
+          }
+    }
+
+    
+    @IBAction func orbitRadiusIncrease(_ sender: UIButton) {
+        repositionPlanet(ifIncrease: true)
+    }
+    
+    @IBAction func orbitRadiusDecrease(_ sender: UIButton) {
+        repositionPlanet(ifIncrease: true)
+    }
+    
+    
     func random(min: Int, max: Int) -> Int {
         return Int(arc4random_uniform(UInt32(max - min + 1))) + min
     }
@@ -228,6 +251,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
     }
+  
 }
 
 
