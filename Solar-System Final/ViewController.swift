@@ -86,6 +86,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             //Orbit of planet
             let path = pathDrawn(radius: radiu)
+            path.name = planetsName[index] + "orbit"
             path.position = SCNVector3(0, 0.5, 0)
             sceneView.scene.rootNode.addChildNode(path)
             
@@ -215,9 +216,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     func repositionPlanet(ifIncrease:Bool){
         for (index,planet) in planetsName.enumerated(){
             sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
-                if planet == node.name && (node.name  != nil) {
-                    orbitRadius = ifIncrease ? (orbitRadius + 0.01) : (orbitRadius - 0.01)
-                    node.position =   SCNVector3(0,0, -planetRadius[index] - orbitRadius )
+                if (node.name  != nil) {
+                    orbitRadius = ifIncrease ? (orbitRadius - 0.01) : (orbitRadius + 0.01)
+
+                    if( (planet == node.name!)   )  {
+                        node.position =   SCNVector3(0,0, -planetRadius[index] + orbitRadius )
+                    }else if  ( planet == node.name! + "orbit" ) {
+                        if let nodeshape  =  node.geometry as? SCNTorus {
+                            nodeshape.ringRadius = CGFloat(orbitRadius)
+                        }
+                    }
                 }
             }
           }
