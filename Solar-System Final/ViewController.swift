@@ -51,12 +51,12 @@ var planetsName = ["mercury" , "venus" , "earth" , "mars" , "jupiter" , "saturn"
 
 
 class ViewController: UIViewController, ARSCNViewDelegate {
-
-    @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet var customView: UIView!
+    
+    @IBOutlet var  sceneView: ARSCNView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Set the view's delegate
         sceneView.delegate = self
         
@@ -71,10 +71,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.addGestureRecognizer(tap)
 
         CreateButtonForVelocityUpdate()
+        
     }
     
     func CreateButtonForVelocityUpdate(){
-        
+        let node = addPlusNode()
+        node.position = SCNVector3(0,0.5,0 )
+        sceneView.scene.rootNode.addChildNode(node)
+    }
+    
+    func buttonAction(sender:UIButton!) {
+        var btnsendtag:UIButton = sender
+        if btnsendtag.tag == 22 {
+            //println("Button tapped tag 22")
+        }
     }
     
     //Method called when tap
@@ -89,7 +99,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     }
                 }
             }
-            
         }
     }
     
@@ -100,6 +109,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         var speedDistribution = [1.6,0.9,1.2,0.8,1.3,0.2,0.4,0.8,0.2]
         
         for (index,radiu) in radius.enumerated(){
+          
             let sunNode = addSunInCenter()
             sunNode.position = SCNVector3(0,0.5,0 )
 
@@ -125,14 +135,29 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
           
             let rotateAction = SCNAction.rotate(by: .pi , around: SCNVector3(0, 1,0), duration: TimeInterval(speedDistribution[index] * 10) )
-            
-            let  repeataction = SCNAction.repeat(rotateAction, count: 50)
-            sunNode.runAction(repeataction)
-
+//            rotateAction.value(forKey: "rotate\(index)")
+            let repeataction = SCNAction.repeatForever(rotateAction)
+            repeataction.speed = CGFloat(veleocity)
+            sunNode.runAction(repeataction , forKey:"rotate")
             addRandomStar(childNode: childNode)
-
             sunNode.addChildNode(childNode)
+            
             sceneView.scene.rootNode.addChildNode(sunNode)
+        }
+    }
+    
+    var veleocity = 0.5
+    func updateSpeed(ifIncrease:Bool) {
+        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+            let nodeAction = node.action(forKey: "rotate")
+            nodeAction?.speed = CGFloat(veleocity * 0.1)
+            if ifIncrease {
+                veleocity = veleocity + 0.5
+            }else{
+                if (veleocity - 0.5) > 0 {
+                    veleocity = veleocity - 0.5
+                }
+            }
         }
     }
     
@@ -155,6 +180,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         return node
     }
     
+    
+    func addPlusNode() -> SCNNode{
+        let shape = SCNSphere(radius: 0.08)
+        let material = SCNMaterial()
+        material.diffuse.contents = UIColor.red
+        shape.materials = [material]
+        let node = SCNNode(geometry: shape)
+        return node
+    }
     
     func pathDrawn(radius:Double) -> SCNNode {
         let geometry = SCNTorus(ringRadius: CGFloat(radius),
@@ -208,6 +242,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         textNode.position = SCNVector3(x:planetNode.position.x - 0.2 ,y: planetNode.position.y , z:planetNode.position.z)
         planetNode.addChildNode(textNode)
     }
+    
+    @IBAction func velocityIncrease(_ sender: UIButton) {
+        updateSpeed(ifIncrease: true)
+        
+    }
+    
+    @IBAction func velocityDecrease(_ sender: UIButton) {
+        updateSpeed(ifIncrease: false)
+    }
+    
+    @IBAction func SizeDecrease(_ sender: UIButton) {
+    }
+    
+    @IBAction func SizeIncrease(_ sender: Any) {
+    }
+    
 }
 
 

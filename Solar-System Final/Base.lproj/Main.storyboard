@@ -1,27 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A278a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BrB-h1-WRS">
+                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="Solar_System_Final" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5t2-1B-62i">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </arscnView>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tET-eD-ZfL">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EdT-D9-yCS">
+                                <rect key="frame" x="26" y="626" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="MfO-Kp-2N9"/>
+                                    <constraint firstAttribute="height" constant="30" id="sjT-XG-jT8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Velecity I"/>
+                                <connections>
+                                    <action selector="velocityIncrease:" destination="BV1-FR-VrT" eventType="touchUpInside" id="r9b-bW-eQg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMT-EG-bwX">
+                                <rect key="frame" x="106" y="626" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Zkj-wa-zdT"/>
+                                    <constraint firstAttribute="width" constant="50" id="fmf-N0-oFs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Velocity D"/>
+                                <connections>
+                                    <action selector="velocityDecrease:" destination="BV1-FR-VrT" eventType="touchUpInside" id="9t6-pS-j4A"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9e-HS-PP9">
+                                <rect key="frame" x="337" y="632" width="31" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Size D"/>
+                                <connections>
+                                    <action selector="SizeDecrease:" destination="BV1-FR-VrT" eventType="touchUpInside" id="845-dw-ATR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Qm-3g-lgS">
+                                <rect key="frame" x="288" y="632" width="30" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Size I"/>
+                                <connections>
+                                    <action selector="SizeIncrease:" destination="BV1-FR-VrT" eventType="touchUpInside" id="OUF-ol-Ros"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tET-eD-ZfL" firstAttribute="leading" secondItem="Q04-sg-7q8" secondAttribute="leading" id="3wJ-WP-b8e"/>
+                            <constraint firstItem="Q04-sg-7q8" firstAttribute="trailing" secondItem="m9e-HS-PP9" secondAttribute="trailing" constant="7" id="BXI-xR-yS0"/>
+                            <constraint firstItem="DMT-EG-bwX" firstAttribute="leading" secondItem="EdT-D9-yCS" secondAttribute="trailing" constant="30" id="BXp-Sv-xRP"/>
+                            <constraint firstItem="EdT-D9-yCS" firstAttribute="leading" secondItem="Q04-sg-7q8" secondAttribute="leading" constant="26" id="Wdk-qr-uQf"/>
+                            <constraint firstItem="Q04-sg-7q8" firstAttribute="bottom" secondItem="tET-eD-ZfL" secondAttribute="bottom" id="ZhG-0m-OXc"/>
+                            <constraint firstItem="Q04-sg-7q8" firstAttribute="bottom" secondItem="1Qm-3g-lgS" secondAttribute="bottom" constant="11" id="bpf-Hw-J8L"/>
+                            <constraint firstItem="tET-eD-ZfL" firstAttribute="top" secondItem="Q04-sg-7q8" secondAttribute="top" id="eeh-Ir-3wi"/>
+                            <constraint firstItem="Q04-sg-7q8" firstAttribute="bottom" secondItem="m9e-HS-PP9" secondAttribute="bottom" constant="11" id="ey0-dz-Im5"/>
+                            <constraint firstItem="Q04-sg-7q8" firstAttribute="trailing" secondItem="tET-eD-ZfL" secondAttribute="trailing" id="lrb-yD-PzN"/>
+                            <constraint firstItem="Q04-sg-7q8" firstAttribute="bottom" secondItem="EdT-D9-yCS" secondAttribute="bottom" constant="11" id="q2Q-0R-uVd"/>
+                            <constraint firstItem="m9e-HS-PP9" firstAttribute="leading" secondItem="1Qm-3g-lgS" secondAttribute="trailing" constant="19" id="t4b-fP-Eff"/>
+                            <constraint firstItem="Q04-sg-7q8" firstAttribute="bottom" secondItem="DMT-EG-bwX" secondAttribute="bottom" constant="11" id="ukf-MU-cYE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Q04-sg-7q8"/>
+                    </view>
                     <connections>
-                        <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
+                        <outlet property="customView" destination="5t2-1B-62i" id="Ded-Fa-a2u"/>
+                        <outlet property="sceneView" destination="tET-eD-ZfL" id="RBI-2d-tNj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="31.934032983508249"/>
         </scene>
     </scenes>
 </document>
