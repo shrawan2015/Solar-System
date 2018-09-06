@@ -22,41 +22,49 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EdT-D9-yCS">
-                                <rect key="frame" x="26" y="626" width="50" height="30"/>
+                                <rect key="frame" x="26" y="617" width="60" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="MfO-Kp-2N9"/>
+                                    <constraint firstAttribute="width" constant="60" id="MfO-Kp-2N9"/>
                                     <constraint firstAttribute="height" constant="30" id="sjT-XG-jT8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <state key="normal" title="Velecity I"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Velecity I">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="velocityIncrease:" destination="BV1-FR-VrT" eventType="touchUpInside" id="r9b-bW-eQg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMT-EG-bwX">
-                                <rect key="frame" x="106" y="626" width="50" height="30"/>
+                                <rect key="frame" x="116" y="617" width="62" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Zkj-wa-zdT"/>
-                                    <constraint firstAttribute="width" constant="50" id="fmf-N0-oFs"/>
+                                    <constraint firstAttribute="width" constant="62" id="fmf-N0-oFs"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <state key="normal" title="Velocity D"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Velocity D">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="velocityDecrease:" destination="BV1-FR-VrT" eventType="touchUpInside" id="9t6-pS-j4A"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9e-HS-PP9">
-                                <rect key="frame" x="337" y="632" width="31" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <state key="normal" title="Size D"/>
+                                <rect key="frame" x="329" y="619" width="39" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Size D">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="SizeDecrease:" destination="BV1-FR-VrT" eventType="touchUpInside" id="845-dw-ATR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Qm-3g-lgS">
-                                <rect key="frame" x="288" y="632" width="30" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <state key="normal" title="Size I"/>
+                                <rect key="frame" x="277" y="619" width="33" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Size I">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="SizeIncrease:" destination="BV1-FR-VrT" eventType="touchUpInside" id="OUF-ol-Ros"/>
                                 </connections>
@@ -69,13 +77,13 @@
                             <constraint firstItem="DMT-EG-bwX" firstAttribute="leading" secondItem="EdT-D9-yCS" secondAttribute="trailing" constant="30" id="BXp-Sv-xRP"/>
                             <constraint firstItem="EdT-D9-yCS" firstAttribute="leading" secondItem="Q04-sg-7q8" secondAttribute="leading" constant="26" id="Wdk-qr-uQf"/>
                             <constraint firstItem="Q04-sg-7q8" firstAttribute="bottom" secondItem="tET-eD-ZfL" secondAttribute="bottom" id="ZhG-0m-OXc"/>
-                            <constraint firstItem="Q04-sg-7q8" firstAttribute="bottom" secondItem="1Qm-3g-lgS" secondAttribute="bottom" constant="11" id="bpf-Hw-J8L"/>
+                            <constraint firstItem="Q04-sg-7q8" firstAttribute="bottom" secondItem="1Qm-3g-lgS" secondAttribute="bottom" constant="20" id="bpf-Hw-J8L"/>
                             <constraint firstItem="tET-eD-ZfL" firstAttribute="top" secondItem="Q04-sg-7q8" secondAttribute="top" id="eeh-Ir-3wi"/>
-                            <constraint firstItem="Q04-sg-7q8" firstAttribute="bottom" secondItem="m9e-HS-PP9" secondAttribute="bottom" constant="11" id="ey0-dz-Im5"/>
+                            <constraint firstItem="Q04-sg-7q8" firstAttribute="bottom" secondItem="m9e-HS-PP9" secondAttribute="bottom" constant="20" id="ey0-dz-Im5"/>
                             <constraint firstItem="Q04-sg-7q8" firstAttribute="trailing" secondItem="tET-eD-ZfL" secondAttribute="trailing" id="lrb-yD-PzN"/>
-                            <constraint firstItem="Q04-sg-7q8" firstAttribute="bottom" secondItem="EdT-D9-yCS" secondAttribute="bottom" constant="11" id="q2Q-0R-uVd"/>
+                            <constraint firstItem="Q04-sg-7q8" firstAttribute="bottom" secondItem="EdT-D9-yCS" secondAttribute="bottom" constant="20" id="q2Q-0R-uVd"/>
                             <constraint firstItem="m9e-HS-PP9" firstAttribute="leading" secondItem="1Qm-3g-lgS" secondAttribute="trailing" constant="19" id="t4b-fP-Eff"/>
-                            <constraint firstItem="Q04-sg-7q8" firstAttribute="bottom" secondItem="DMT-EG-bwX" secondAttribute="bottom" constant="11" id="ukf-MU-cYE"/>
+                            <constraint firstItem="Q04-sg-7q8" firstAttribute="bottom" secondItem="DMT-EG-bwX" secondAttribute="bottom" constant="20" id="ukf-MU-cYE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q04-sg-7q8"/>
                     </view>

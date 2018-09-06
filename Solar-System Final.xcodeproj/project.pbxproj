@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04888BCA2141249F009A0E0A /* PlanetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04888BC92141249E009A0E0A /* PlanetModel.swift */; };
 		04A24921213FCA8A00718C95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A24920213FCA8A00718C95 /* AppDelegate.swift */; };
 		04A24923213FCA8A00718C95 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A24922213FCA8A00718C95 /* art.scnassets */; };
 		04A24925213FCA8A00718C95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A24924213FCA8A00718C95 /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04888BC92141249E009A0E0A /* PlanetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetModel.swift; sourceTree = "<group>"; };
 		04A2491D213FCA8A00718C95 /* Solar-System Final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Solar-System Final.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A24920213FCA8A00718C95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04A24922213FCA8A00718C95 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				04A2493B213FDD4B00718C95 /* uranus.jpg */,
 				04A2493D213FDD4B00718C95 /* venus.jpg */,
 				04A2492E213FCA8B00718C95 /* Info.plist */,
+				04888BC92141249E009A0E0A /* PlanetModel.swift */,
 			);
 			path = "Solar-System Final";
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			files = (
 				04A24925213FCA8A00718C95 /* ViewController.swift in Sources */,
 				04A24921213FCA8A00718C95 /* AppDelegate.swift in Sources */,
+				04888BCA2141249F009A0E0A /* PlanetModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
