@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04888BCA2141249F009A0E0A /* PlanetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04888BC92141249E009A0E0A /* PlanetModel.swift */; };
+		04888BCC21413D91009A0E0A /* sun_texture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04888BCB21413D91009A0E0A /* sun_texture.jpg */; };
 		04A24921213FCA8A00718C95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A24920213FCA8A00718C95 /* AppDelegate.swift */; };
 		04A24923213FCA8A00718C95 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A24922213FCA8A00718C95 /* art.scnassets */; };
 		04A24925213FCA8A00718C95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A24924213FCA8A00718C95 /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		04888BC92141249E009A0E0A /* PlanetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetModel.swift; sourceTree = "<group>"; };
+		04888BCB21413D91009A0E0A /* sun_texture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sun_texture.jpg; sourceTree = "<group>"; };
 		04A2491D213FCA8A00718C95 /* Solar-System Final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Solar-System Final.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A24920213FCA8A00718C95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04A24922213FCA8A00718C95 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				04A24926213FCA8A00718C95 /* Main.storyboard */,
 				04A24929213FCA8B00718C95 /* Assets.xcassets */,
 				04A2492B213FCA8B00718C95 /* LaunchScreen.storyboard */,
+				04888BCB21413D91009A0E0A /* sun_texture.jpg */,
 				04A2493E213FDD4C00718C95 /* earth.jpg */,
 				04A24935213FDD4B00718C95 /* jupiter_loop.png */,
 				04A24941213FDD4C00718C95 /* jupiter.jpg */,
@@ -186,6 +189,7 @@
 				04A2492D213FCA8B00718C95 /* LaunchScreen.storyboard in Resources */,
 				04A2492A213FCA8B00718C95 /* Assets.xcassets in Resources */,
 				04A24928213FCA8A00718C95 /* Main.storyboard in Resources */,
+				04888BCC21413D91009A0E0A /* sun_texture.jpg in Resources */,
 				04A24948213FDD4C00718C95 /* pluto.jpg in Resources */,
 				04A24949213FDD4C00718C95 /* uranus.jpg in Resources */,
 			);

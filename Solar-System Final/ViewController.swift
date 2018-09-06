@@ -38,9 +38,47 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
-        
+        configuration.planeDetection = .horizontal
         // Run the view's session
         sceneView.session.run(configuration)
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        
+        // 1
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        
+        // 2
+        let width = CGFloat(planeAnchor.extent.x)
+        let height = CGFloat(planeAnchor.extent.z)
+        let plane = SCNPlane(width: width, height: height)
+        
+        // 3
+        plane.materials.first?.diffuse.contents = UIColor.blue
+        
+        // 4
+        let planeNode = SCNNode(geometry: plane)
+        
+        // 5
+        let x = CGFloat(planeAnchor.center.x)
+        let y = CGFloat(planeAnchor.center.y)
+        let z = CGFloat(planeAnchor.center.z)
+        planeNode.position = SCNVector3(x,y,z)
+        planeNode.eulerAngles.x = -.pi / 2
+        
+        // 6
+        node.addChildNode(planeNode)
+        
+        virtualNode.position = SCNVector3(x,y,z)
+        virtualNode.scale = SCNVector3(0.3,0.3,0.3)
+
+        node.addChildNode(virtualNode)
+
+        
+//        node.addChildNode(SCNNode)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -88,7 +126,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let path = pathDrawn(radius: radiu)
             path.name = planetsName[index] + "orbit"
             path.position = SCNVector3(0, 0.5, 0)
-            sceneView.scene.rootNode.addChildNode(path)
             
             //TODO: Ring aroud saturn
             if index > 20{
@@ -109,12 +146,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             //"rotate" key to change the velocity dynamically
             sunNode.runAction(repeataction , forKey:"rotate")
             addRandomStar(childNode: childNode)
+            
             sunNode.addChildNode(childNode)
             
-            sceneView.scene.rootNode.addChildNode(sunNode)
+            virtualNode.position = SCNVector3(0, 1,0)
+           
+            virtualNode.addChildNode(path)
+            virtualNode.addChildNode(sunNode)
         }
     }
     
+    let virtualNode = SCNNode()
+
     func addCenterNode(ofIndex:Int) -> SCNNode{
         let shape = SCNSphere(radius: 0.25)
         let material = SCNMaterial()
@@ -127,7 +170,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     func addSunInCenter() -> SCNNode{
         let shape = SCNSphere(radius: 0.2)
         let material = SCNMaterial()
-        material.diffuse.contents = UIColor.red
+        material.diffuse.contents =  UIColor.red //UIImage(named:"sun.jpg")
         shape.materials = [material]
         let node = SCNNode(geometry: shape)
         return node
