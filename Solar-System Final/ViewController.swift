@@ -25,7 +25,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         sceneView.autoenablesDefaultLighting = true
         addPlanetArroundSun()
-
+        addStarsToPlanet()
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(rec:)))
         sceneView.addGestureRecognizer(tap)
         
@@ -143,7 +143,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             //"rotate" key to change the velocity dynamically
             sunNode.runAction(repeataction , forKey:"rotate")
-            addRandomStar(childNode: childNode)
+//            addRandomStar(childNode: childNode)
             
             sunNode.addChildNode(childNode)
             
@@ -298,7 +298,19 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
     }
-  
+    
+    
+    func addStarsToPlanet(){
+        for _ in (1...500) {
+            let scene = SCNScene(named: "art.scnassets/starss.scn")!
+            let shipNode = scene.rootNode.childNode(withName: "Mesh", recursively: true)!
+            shipNode.scale = SCNVector3(0.02,0.02,0.02)
+            shipNode.position = SCNVector3(x: Float.random(min: 3.0, max: -3.0), y:Float.random(min: -3, max: 3.0), z: Float.random(min: 3.0, max: -3.0))
+            virtualNode.addChildNode(shipNode)
+        }
+    }
+    
+
 }
 
 
@@ -312,4 +324,69 @@ func addRandomStar(childNode:SCNNode){
 
 class Dimensions {
     static let FIGURE_RADIUS:CGFloat = 0.4/40.0
+}
+
+
+
+// MARK: Double Extension
+
+public extension Double {
+    
+    /// Returns a random floating point number between 0.0 and 1.0, inclusive.
+    public static var random: Double {
+        return Double(arc4random()) / 0xFFFFFFFF
+    }
+    
+    /// Random double between 0 and n-1.
+    ///
+    /// - Parameter n:  Interval max
+    /// - Returns:      Returns a random double point number between 0 and n max
+    public static func random(min: Double, max: Double) -> Double {
+        return Double.random * (max - min) + min
+    }
+}
+
+
+
+// MARK: Float Extension
+
+public extension Float {
+    
+    /// Returns a random floating point number between 0.0 and 1.0, inclusive.
+    public static var random: Float {
+        return Float(arc4random()) / 0xFFFFFFFF
+    }
+    
+    /// Random float between 0 and n-1.
+    ///
+    /// - Parameter n:  Interval max
+    /// - Returns:      Returns a random float point number between 0 and n max
+    public static func random(min: Float, max: Float) -> Float {
+        return Float.random * (max - min) + min
+    }
+}
+
+
+
+// MARK: CGFloat Extension
+
+public extension CGFloat {
+    
+    /// Randomly returns either 1.0 or -1.0.
+    public static var randomSign: CGFloat {
+        return (arc4random_uniform(2) == 0) ? 1.0 : -1.0
+    }
+    
+    /// Returns a random floating point number between 0.0 and 1.0, inclusive.
+    public static var random: CGFloat {
+        return CGFloat(Float.random)
+    }
+    
+    /// Random CGFloat between 0 and n-1.
+    ///
+    /// - Parameter n:  Interval max
+    /// - Returns:      Returns a random CGFloat point number between 0 and n max
+    public static func random(min: CGFloat, max: CGFloat) -> CGFloat {
+        return CGFloat.random * (max - min) + min
+    }
 }
