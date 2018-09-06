@@ -70,6 +70,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(rec:)))
         sceneView.addGestureRecognizer(tap)
 
+        CreateButtonForVelocityUpdate()
+    }
+    
+    func CreateButtonForVelocityUpdate(){
+        
     }
     
     //Method called when tap
