@@ -54,7 +54,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let plane = SCNPlane(width: width, height: height)
         
         // 3
-        plane.materials.first?.diffuse.contents = UIColor.blue
+        plane.materials.first?.diffuse.contents = UIColor.clear
         
         // 4
         let planeNode = SCNNode(geometry: plane)
@@ -91,8 +91,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let location: CGPoint = rec.location(in: sceneView)
             let hits = self.sceneView.hitTest(location, options: nil)
             if !hits.isEmpty{
+                
                 sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
                     if hits.first?.node.name == node.name && (node.name  != nil) {
+                        AudioPlayer.shared.playSound(.Mercury, on: virtualNode)
                         node.removeFromParentNode()
                     }
                 }
@@ -309,8 +311,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             virtualNode.addChildNode(shipNode)
         }
     }
-    
-
 }
 
 
