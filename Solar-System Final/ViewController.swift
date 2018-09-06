@@ -305,7 +305,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let scene = SCNScene(named: "art.scnassets/starss.scn")!
             let shipNode = scene.rootNode.childNode(withName: "Mesh", recursively: true)!
             shipNode.scale = SCNVector3(0.02,0.02,0.02)
-            shipNode.position = SCNVector3(x: Float.random(min: 3.0, max: -3.0), y:Float.random(min: -3, max: 3.0), z: Float.random(min: 3.0, max: -3.0))
+            shipNode.position = SCNVector3(x: Float.random(min: 5.0, max: -5.0), y:Float.random(min: -5, max: 5.0), z: Float.random(min: 6.0, max: -6.0))
             virtualNode.addChildNode(shipNode)
         }
     }
