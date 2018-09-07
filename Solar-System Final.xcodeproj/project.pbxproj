@@ -81,6 +81,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0445CE3121424ECE0096CE74 /* planet */ = {
+			isa = PBXGroup;
+			children = (
+				04888BCB21413D91009A0E0A /* sun_texture.jpg */,
+				04A2493E213FDD4C00718C95 /* earth.jpg */,
+				04A24935213FDD4B00718C95 /* jupiter_loop.png */,
+				04A24941213FDD4C00718C95 /* jupiter.jpg */,
+				04A24937213FDD4B00718C95 /* mars.jpg */,
+				04A24938213FDD4B00718C95 /* mercury.jpg */,
+				04A2493F213FDD4C00718C95 /* moon.jpg */,
+				04A2493A213FDD4B00718C95 /* pluto.jpg */,
+				04A2493C213FDD4B00718C95 /* saturn_cloud.png */,
+				04A24934213FDD4A00718C95 /* saturn_loop.png */,
+				04A24939213FDD4B00718C95 /* saturn.jpg */,
+				04A24936213FDD4B00718C95 /* sun.jpg */,
+				04A24940213FDD4C00718C95 /* uranus_loop.png */,
+				04A2493B213FDD4B00718C95 /* uranus.jpg */,
+				04A2493D213FDD4B00718C95 /* venus.jpg */,
+			);
+			name = planet;
+			sourceTree = "<group>";
+		};
 		04888BD121415BF7009A0E0A /* Screenshot */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,28 +137,14 @@
 				04888BD121415BF7009A0E0A /* Screenshot */,
 				04888BCD21415152009A0E0A /* AudioPlayer.swift */,
 				04A24920213FCA8A00718C95 /* AppDelegate.swift */,
+				04888BC92141249E009A0E0A /* PlanetModel.swift */,
 				04A24922213FCA8A00718C95 /* art.scnassets */,
 				04A24924213FCA8A00718C95 /* ViewController.swift */,
 				04A24926213FCA8A00718C95 /* Main.storyboard */,
 				04A24929213FCA8B00718C95 /* Assets.xcassets */,
 				04A2492B213FCA8B00718C95 /* LaunchScreen.storyboard */,
-				04888BCB21413D91009A0E0A /* sun_texture.jpg */,
-				04A2493E213FDD4C00718C95 /* earth.jpg */,
-				04A24935213FDD4B00718C95 /* jupiter_loop.png */,
-				04A24941213FDD4C00718C95 /* jupiter.jpg */,
-				04A24937213FDD4B00718C95 /* mars.jpg */,
-				04A24938213FDD4B00718C95 /* mercury.jpg */,
-				04A2493F213FDD4C00718C95 /* moon.jpg */,
-				04A2493A213FDD4B00718C95 /* pluto.jpg */,
-				04A2493C213FDD4B00718C95 /* saturn_cloud.png */,
-				04A24934213FDD4A00718C95 /* saturn_loop.png */,
-				04A24939213FDD4B00718C95 /* saturn.jpg */,
-				04A24936213FDD4B00718C95 /* sun.jpg */,
-				04A24940213FDD4C00718C95 /* uranus_loop.png */,
-				04A2493B213FDD4B00718C95 /* uranus.jpg */,
-				04A2493D213FDD4B00718C95 /* venus.jpg */,
+				0445CE3121424ECE0096CE74 /* planet */,
 				04A2492E213FCA8B00718C95 /* Info.plist */,
-				04888BC92141249E009A0E0A /* PlanetModel.swift */,
 			);
 			path = "Solar-System Final";
 			sourceTree = "<group>";
