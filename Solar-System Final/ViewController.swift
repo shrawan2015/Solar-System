@@ -12,9 +12,15 @@ import ARKit
 
 
 class ViewController: UIViewController, ARSCNViewDelegate {
+   
     @IBOutlet var customView: UIView!
     @IBOutlet var  sceneView: ARSCNView!
-    
+   
+    let virtualNode = SCNNode()
+   
+    let planetRadius = [1 , 1.4 , 2 , 2.5 , 3 , 3.5 , 4 ,4.5 , 5]
+    var speedDistribution = [1.6,0.9,1.2,0.8,1.3,0.2,0.4,0.8,0.2]
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         // Set the view's delegate
@@ -24,8 +30,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.showsStatistics = true
         
         sceneView.autoenablesDefaultLighting = true
+        
+        
         addPlanetArroundSun()
         addStarsToPlanet()
+        
+        //To destroy palnet
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(rec:)))
         sceneView.addGestureRecognizer(tap)
         
@@ -40,73 +50,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Run the view's session
         sceneView.session.run(configuration)
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
-
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        
-        // 1
-        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        
-        // 2
-        let width = CGFloat(planeAnchor.extent.x)
-        let height = CGFloat(planeAnchor.extent.z)
-        let plane = SCNPlane(width: width, height: height)
-        
-        // 3
-        plane.materials.first?.diffuse.contents = UIColor.clear
-        
-        // 4
-        let planeNode = SCNNode(geometry: plane)
-        
-        // 5
-        let x = CGFloat(planeAnchor.center.x)
-        let y = CGFloat(planeAnchor.center.y)
-        let z = CGFloat(planeAnchor.center.z)
-        planeNode.position = SCNVector3(x,y,z)
-        planeNode.eulerAngles.x = -.pi / 2
-        
-        // 6
-        node.addChildNode(planeNode)
-        
-        virtualNode.position = SCNVector3(x,y,z)
-        virtualNode.scale = SCNVector3(0.3,0.3,0.3)
-
-        node.addChildNode(virtualNode)
-
-        
-//        node.addChildNode(SCNNode)
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        // Pause the view's session
         sceneView.session.pause()
     }
 
-    //Method called when tap
-    @objc func handleTap(rec: UITapGestureRecognizer){
-        if rec.state == .ended {
-            let location: CGPoint = rec.location(in: sceneView)
-            let hits = self.sceneView.hitTest(location, options: nil)
-            if !hits.isEmpty{
-                
-                sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
-                    if hits.first?.node.name == node.name && (node.name  != nil) {
-                        AudioPlayer.shared.playSound(.Mercury, on: virtualNode)
-                        node.removeFromParentNode()
-                    }
-                }
-            }
-        }
-    }
     
-    let planetRadius = [1 , 1.4 , 2 , 2.5 , 3 , 3.5 , 4 ,4.5 , 5]
+   
 
     func addPlanetArroundSun(){
         //TODO: Update radius
-        var speedDistribution = [1.6,0.9,1.2,0.8,1.3,0.2,0.4,0.8,0.2]
         
         for (index,radiu) in planetRadius.enumerated(){
            
@@ -145,18 +100,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             //"rotate" key to change the velocity dynamically
             sunNode.runAction(repeataction , forKey:"rotate")
-//            addRandomStar(childNode: childNode)
+            
             
             sunNode.addChildNode(childNode)
             
             virtualNode.position = SCNVector3(0, 1,0)
-           
             virtualNode.addChildNode(path)
             virtualNode.addChildNode(sunNode)
         }
     }
     
-    let virtualNode = SCNNode()
 
     func addCenterNode(ofIndex:Int) -> SCNNode{
         let shape = SCNSphere(radius: 0.25)
@@ -253,6 +206,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
     }
     
+    
     var orbitRadius = 0.01
     func repositionPlanet(ifIncrease:Bool){
         for (index,planet) in planetsName.enumerated(){
@@ -309,6 +263,52 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             shipNode.scale = SCNVector3(0.02,0.02,0.02)
             shipNode.position = SCNVector3(x: Float.random(min: 5.0, max: -5.0), y:Float.random(min: -5, max: 5.0), z: Float.random(min: 6.0, max: -6.0))
             virtualNode.addChildNode(shipNode)
+        }
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        
+        let width = CGFloat(planeAnchor.extent.x)
+        let height = CGFloat(planeAnchor.extent.z)
+        let plane = SCNPlane(width: width, height: height)
+        
+        plane.materials.first?.diffuse.contents = UIColor.clear
+        
+        let planeNode = SCNNode(geometry: plane)
+        
+        let x = CGFloat(planeAnchor.center.x)
+        let y = CGFloat(planeAnchor.center.y)
+        let z = CGFloat(planeAnchor.center.z)
+        planeNode.position = SCNVector3(x,y,z)
+        planeNode.eulerAngles.x = -.pi / 2
+        
+        // 6
+        node.addChildNode(planeNode)
+        
+        /// Add solar system to the planeNode -
+        virtualNode.position = SCNVector3(x,y,z)
+        virtualNode.scale = SCNVector3(0.3,0.3,0.3)
+        
+        node.addChildNode(virtualNode)
+    }
+    
+    
+    //Method called when tap
+    @objc func handleTap(rec: UITapGestureRecognizer){
+        if rec.state == .ended {
+            let location: CGPoint = rec.location(in: sceneView)
+            let hits = self.sceneView.hitTest(location, options: nil)
+            if !hits.isEmpty{
+                
+                sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+                    if hits.first?.node.name == node.name && (node.name  != nil) {
+                        AudioPlayer.shared.playSound(.Mercury, on: virtualNode)
+                        node.removeFromParentNode()
+                    }
+                }
+            }
         }
     }
 }

@@ -35,8 +35,6 @@ enum PlanetEnum : Int {
             return "uranus.jpg"
         case .NEPTUNE:
             return "neptune.jpg"
-        default:
-            return "neptune.jpg"
         }
     }
 }
